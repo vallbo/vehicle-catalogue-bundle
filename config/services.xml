@@ -6,7 +6,7 @@
     <services>
         <!-- Main facade -->
         <service id="carvago_vehicle_catalogue"
-                 class="Carvago\VehicleCatalogue\SDK"
+                 class="Carvago\VehicleCatalogue\SDK\VehicleCatalogue"
                  public="true">
             <argument type="service" id="carvago_vehicle_make_repository"/>
             <argument type="service" id="carvago_vehicle_model_family_repository"/>
