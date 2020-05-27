@@ -16,6 +16,8 @@
             <argument type="service" id="carvago_vehicle_transmission_repository"/>
         </service>
 
+        <service id="Carvago\VehicleCatalogue\SDK\VehicleCatalogue" alias="carvago_vehicle_catalogue"/>
+
         <!-- Client -->
         <service id="carvago_vehicle_catalogue_client"
                  class="Carvago\VehicleCatalogue\SDK\VehicleCatalogueClient"
