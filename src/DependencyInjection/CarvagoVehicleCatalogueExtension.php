@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Carvago\VehicleCatalogueBundle\DependencyInjection;
 
-use Carvago\VehicleCatalogue\SDK\VehicleCatalogueClient;
 use Exception;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -28,7 +27,7 @@ final class CarvagoVehicleCatalogueExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $definition = $container->getDefinition(VehicleCatalogueClient::class);
+        $definition = $container->getDefinition('carvago_vehicle_catalogue_client');
 
         if (!array_key_exists(Configuration::ENDPOINT, $config)) {
             return;
