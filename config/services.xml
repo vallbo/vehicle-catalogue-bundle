@@ -5,53 +5,59 @@
 
     <services>
         <!-- Main facade -->
-        <service id="Carvago\VehicleCatalogue\SDK"
+        <service id="carvago_vehicle_catalogue"
                  class="Carvago\VehicleCatalogue\SDK"
                  public="true">
+            <argument type="service" id="carvago_vehicle_make_repository"/>
+            <argument type="service" id="carvago_vehicle_model_family_repository"/>
+            <argument type="service" id="carvago_vehicle_model_edition_repository"/>
+            <argument type="service" id="carvago_vehicle_drive_repository"/>
+            <argument type="service" id="carvago_vehicle_fuel_repository"/>
+            <argument type="service" id="carvago_vehicle_transmission_repository"/>
         </service>
 
         <!-- Client -->
-        <service id="Carvago\VehicleCatalogue\SDK\VehicleCatalogueClient"
+        <service id="carvago_vehicle_catalogue_client"
                  class="Carvago\VehicleCatalogue\SDK\VehicleCatalogueClient"
                  public="false">
             <argument/>
         </service>
 
         <!-- Repositories -->
-        <service id="Carvago\VehicleCatalogue\SDK\Make\MakeRepository"
+        <service id="carvago_vehicle_make_repository"
                  class="Carvago\VehicleCatalogue\SDK\Make\MakeRepository"
                  public="false">
-            <argument type="service" id="Carvago\VehicleCatalogue\SDK\VehicleCatalogueClient"/>
+            <argument type="service" id="carvago_vehicle_catalogue_client"/>
         </service>
 
-        <service id="Carvago\VehicleCatalogue\SDK\ModelFamily\ModelFamilyRepository"
+        <service id="carvago_vehicle_model_family_repository"
                  class="Carvago\VehicleCatalogue\SDK\ModelFamily\ModelFamilyRepository"
                  public="false">
-            <argument type="service" id="Carvago\VehicleCatalogue\SDK\VehicleCatalogueClient"/>
+            <argument type="service" id="carvago_vehicle_catalogue_client"/>
         </service>
 
-        <service id="Carvago\VehicleCatalogue\SDK\ModelEdition\ModelEditionRepository"
+        <service id="carvago_vehicle_model_edition_repository"
                  class="Carvago\VehicleCatalogue\SDK\ModelEdition\ModelEditionRepository"
                  public="false">
-            <argument type="service" id="Carvago\VehicleCatalogue\SDK\VehicleCatalogueClient"/>
+            <argument type="service" id="carvago_vehicle_catalogue_client"/>
         </service>
 
-        <service id="Carvago\VehicleCatalogue\SDK\Drive\DriveRepository"
+        <service id="carvago_vehicle_drive_repository"
                  class="Carvago\VehicleCatalogue\SDK\Drive\DriveRepository"
                  public="false">
-            <argument type="service" id="Carvago\VehicleCatalogue\SDK\VehicleCatalogueClient"/>
+            <argument type="service" id="carvago_vehicle_catalogue_client"/>
         </service>
 
-        <service id="Carvago\VehicleCatalogue\SDK\Fuel\FuelRepository"
+        <service id="carvago_vehicle_fuel_repository"
                  class="Carvago\VehicleCatalogue\SDK\Fuel\FuelRepository"
                  public="false">
-            <argument type="service" id="Carvago\VehicleCatalogue\SDK\VehicleCatalogueClient"/>
+            <argument type="service" id="carvago_vehicle_catalogue_client"/>
         </service>
 
-        <service id="Carvago\VehicleCatalogue\SDK\Transmission\TransmissionRepository"
+        <service id="carvago_vehicle_transmission_repository"
                  class="Carvago\VehicleCatalogue\SDK\Transmission\TransmissionRepository"
                  public="false">
-            <argument type="service" id="Carvago\VehicleCatalogue\SDK\VehicleCatalogueClient"/>
+            <argument type="service" id="carvago_vehicle_catalogue_client"/>
         </service>
     </services>
 </container>
