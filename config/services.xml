@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <!-- Main facade -->
+        <service id="Carvago\VehicleCatalogue\SDK"
+                 class="Carvago\VehicleCatalogue\SDK"
+                 public="true">
+        </service>
+
+        <!-- Client -->
+        <service id="Carvago\VehicleCatalogue\SDK\VehicleCatalogueClient"
+                 class="Carvago\VehicleCatalogue\SDK\VehicleCatalogueClient"
+                 public="false">
+            <argument/>
+        </service>
+
+        <!-- Repositories -->
+        <service id="Carvago\VehicleCatalogue\SDK\Make\MakeRepository"
+                 class="Carvago\VehicleCatalogue\SDK\Make\MakeRepository"
+                 public="false">
+            <argument type="service" id="Carvago\VehicleCatalogue\SDK\VehicleCatalogueClient"/>
+        </service>
+
+        <service id="Carvago\VehicleCatalogue\SDK\ModelFamily\ModelFamilyRepository"
+                 class="Carvago\VehicleCatalogue\SDK\ModelFamily\ModelFamilyRepository"
+                 public="false">
+            <argument type="service" id="Carvago\VehicleCatalogue\SDK\VehicleCatalogueClient"/>
+        </service>
+
+        <service id="Carvago\VehicleCatalogue\SDK\ModelEdition\ModelEditionRepository"
+                 class="Carvago\VehicleCatalogue\SDK\ModelEdition\ModelEditionRepository"
+                 public="false">
+            <argument type="service" id="Carvago\VehicleCatalogue\SDK\VehicleCatalogueClient"/>
+        </service>
+
+        <service id="Carvago\VehicleCatalogue\SDK\Drive\DriveRepository"
+                 class="Carvago\VehicleCatalogue\SDK\Drive\DriveRepository"
+                 public="false">
+            <argument type="service" id="Carvago\VehicleCatalogue\SDK\VehicleCatalogueClient"/>
+        </service>
+
+        <service id="Carvago\VehicleCatalogue\SDK\Fuel\FuelRepository"
+                 class="Carvago\VehicleCatalogue\SDK\Fuel\FuelRepository"
+                 public="false">
+            <argument type="service" id="Carvago\VehicleCatalogue\SDK\VehicleCatalogueClient"/>
+        </service>
+
+        <service id="Carvago\VehicleCatalogue\SDK\Transmission\TransmissionRepository"
+                 class="Carvago\VehicleCatalogue\SDK\Transmission\TransmissionRepository"
+                 public="false">
+            <argument type="service" id="Carvago\VehicleCatalogue\SDK\VehicleCatalogueClient"/>
+        </service>
+    </services>
+</container>
