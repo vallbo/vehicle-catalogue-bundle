@@ -14,6 +14,8 @@
             <argument type="service" id="carvago_vehicle_drive_repository"/>
             <argument type="service" id="carvago_vehicle_fuel_repository"/>
             <argument type="service" id="carvago_vehicle_transmission_repository"/>
+            <argument type="service" id="carvago_vehicle_body_color_repository"/>
+            <argument type="service" id="carvago_vehicle_body_type_repository"/>
         </service>
 
         <service id="Carvago\VehicleCatalogue\SDK\VehicleCatalogueInterface" alias="carvago_vehicle_catalogue"/>
@@ -58,6 +60,18 @@
 
         <service id="carvago_vehicle_transmission_repository"
                  class="Carvago\VehicleCatalogue\SDK\Transmission\TransmissionRepository"
+                 public="false">
+            <argument type="service" id="carvago_vehicle_catalogue_client"/>
+        </service>
+
+        <service id="carvago_vehicle_body_color_repository"
+                 class="Carvago\VehicleCatalogue\SDK\BodyColor\BodyColorRepository"
+                 public="false">
+            <argument type="service" id="carvago_vehicle_catalogue_client"/>
+        </service>
+
+        <service id="carvago_vehicle_body_type_repository"
+                 class="Carvago\VehicleCatalogue\SDK\BodyType\BodyTypeRepository"
                  public="false">
             <argument type="service" id="carvago_vehicle_catalogue_client"/>
         </service>
