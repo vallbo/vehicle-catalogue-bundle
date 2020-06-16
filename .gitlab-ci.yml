@@ -1,0 +1,79 @@
+stages:
+    - build
+    - test
+    - post
+
+composer:
+    stage: build
+    image: dockette/php:7.4
+    cache:
+        key: "$CI_JOB_NAME"
+        paths:
+            - vendor
+    artifacts:
+        name: "$CI_JOB_NAME"
+        expire_in: 1 day
+        paths:
+            - vendor
+    script:
+        - APP_ENV=prod composer install -n --prefer-dist --no-scripts
+
+
+## Test stage
+
+phplint:
+    stage: test
+    dependencies:
+        - composer
+    image: dockette/php:7.4
+    script:
+        - composer phplint
+
+phpstan:
+    stage: test
+    dependencies:
+        - composer
+    image: dockette/php:7.4
+    script:
+        - composer phpstan
+
+phpcs:
+    stage: test
+    dependencies:
+        - composer
+    image: dockette/php:7.4
+    script:
+        - composer phpcs
+
+phpmd:
+    stage: test
+    dependencies:
+        - composer
+    image: dockette/php:7.4
+    script:
+        - composer phpmd
+
+phpcpd:
+    stage: test
+    dependencies:
+        - composer
+    image: dockette/php:7.4
+    script:
+        - composer phpcpd
+
+phpvdc:
+    stage: test
+    dependencies:
+        - composer
+    image: dockette/php:7.4
+    script:
+        - composer phpvdc
+
+satis:
+    stage: post
+    image: curlimages/curl:7.70.0
+    script:
+        - curl -X POST $SATIS_URL
+    only:
+        refs:
+            - master
