@@ -225,3 +225,4 @@ $RECYCLE.BIN/
 # End of https://www.gitignore.io/api/linux,macos,symfony,windows,composer,intellij+all
 
 composer.lock
+/*.cache
