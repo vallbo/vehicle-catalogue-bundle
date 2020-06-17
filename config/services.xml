@@ -15,7 +15,13 @@
             <argument type="service" id="carvago_vehicle_fuel_repository"/>
             <argument type="service" id="carvago_vehicle_transmission_repository"/>
             <argument type="service" id="carvago_vehicle_body_color_repository"/>
-            <argument type="service" id="carvago_vehicle_body_type_repository"/>
+            <argument type="service" id="carvago_vehicle_car_style_repository"/>
+            <argument type="service" id="carvago_vehicle_country_repository"/>
+            <argument type="service" id="carvago_vehicle_condition_repository"/>
+            <argument type="service" id="carvago_vehicle_currency_repository"/>
+            <argument type="service" id="carvago_vehicle_feature_category_repository"/>
+            <argument type="service" id="carvago_vehicle_interior_material_repository"/>
+            <argument type="service" id="carvago_vehicle_seller_type_repository"/>
         </service>
 
         <service id="Carvago\VehicleCatalogue\SDK\VehicleCatalogueInterface" alias="carvago_vehicle_catalogue"/>
@@ -28,20 +34,32 @@
         </service>
 
         <!-- Repositories -->
-        <service id="carvago_vehicle_make_repository"
-                 class="Carvago\VehicleCatalogue\SDK\Make\MakeRepository"
+        <service id="carvago_vehicle_body_color_repository"
+                 class="Carvago\VehicleCatalogue\SDK\BodyColor\BodyColorRepository"
                  public="false">
             <argument type="service" id="carvago_vehicle_catalogue_client"/>
         </service>
 
-        <service id="carvago_vehicle_model_family_repository"
-                 class="Carvago\VehicleCatalogue\SDK\ModelFamily\ModelFamilyRepository"
+        <service id="carvago_vehicle_car_style_repository"
+                 class="Carvago\VehicleCatalogue\SDK\CarStyle\CarStyleRepository"
                  public="false">
             <argument type="service" id="carvago_vehicle_catalogue_client"/>
         </service>
 
-        <service id="carvago_vehicle_model_edition_repository"
-                 class="Carvago\VehicleCatalogue\SDK\ModelEdition\ModelEditionRepository"
+        <service id="carvago_vehicle_condition_repository"
+                 class="Carvago\VehicleCatalogue\SDK\Condition\ConditionRepository"
+                 public="false">
+            <argument type="service" id="carvago_vehicle_catalogue_client"/>
+        </service>
+
+        <service id="carvago_vehicle_country_repository"
+                 class="Carvago\VehicleCatalogue\SDK\Country\CountryRepository"
+                 public="false">
+            <argument type="service" id="carvago_vehicle_catalogue_client"/>
+        </service>
+
+        <service id="carvago_vehicle_currency_repository"
+                 class="Carvago\VehicleCatalogue\SDK\Currency\CurrencyRepository"
                  public="false">
             <argument type="service" id="carvago_vehicle_catalogue_client"/>
         </service>
@@ -52,8 +70,50 @@
             <argument type="service" id="carvago_vehicle_catalogue_client"/>
         </service>
 
+        <service id="carvago_vehicle_feature_category_repository"
+                 class="Carvago\VehicleCatalogue\SDK\FeatureCategory\FeatureCategoryRepository"
+                 public="false">
+            <argument type="service" id="carvago_vehicle_catalogue_client"/>
+        </service>
+
         <service id="carvago_vehicle_fuel_repository"
                  class="Carvago\VehicleCatalogue\SDK\Fuel\FuelRepository"
+                 public="false">
+            <argument type="service" id="carvago_vehicle_catalogue_client"/>
+        </service>
+
+        <service id="carvago_vehicle_interior_material_repository"
+                 class="Carvago\VehicleCatalogue\SDK\InteriorMaterial\InteriorMaterialRepository"
+                 public="false">
+            <argument type="service" id="carvago_vehicle_catalogue_client"/>
+        </service>
+
+        <service id="carvago_vehicle_make_repository"
+                 class="Carvago\VehicleCatalogue\SDK\Make\MakeRepository"
+                 public="false">
+            <argument type="service" id="carvago_vehicle_catalogue_client"/>
+        </service>
+
+        <service id="carvago_vehicle_model_edition_repository"
+                 class="Carvago\VehicleCatalogue\SDK\ModelEdition\ModelEditionRepository"
+                 public="false">
+            <argument type="service" id="carvago_vehicle_catalogue_client"/>
+        </service>
+        
+        <service id="carvago_vehicle_model_family_repository"
+                 class="Carvago\VehicleCatalogue\SDK\ModelFamily\ModelFamilyRepository"
+                 public="false">
+            <argument type="service" id="carvago_vehicle_catalogue_client"/>
+        </service>
+
+        <service id="carvago_vehicle_seller_type_repository"
+                 class="Carvago\VehicleCatalogue\SDK\SellerType\SellerTypeRepository"
+                 public="false">
+            <argument type="service" id="carvago_vehicle_catalogue_client"/>
+        </service>
+
+        <service id="carvago_vehicle_translation_repository"
+                 class="Carvago\VehicleCatalogue\SDK\Translation\TranslationRepository"
                  public="false">
             <argument type="service" id="carvago_vehicle_catalogue_client"/>
         </service>
@@ -64,16 +124,5 @@
             <argument type="service" id="carvago_vehicle_catalogue_client"/>
         </service>
 
-        <service id="carvago_vehicle_body_color_repository"
-                 class="Carvago\VehicleCatalogue\SDK\BodyColor\BodyColorRepository"
-                 public="false">
-            <argument type="service" id="carvago_vehicle_catalogue_client"/>
-        </service>
-
-        <service id="carvago_vehicle_body_type_repository"
-                 class="Carvago\VehicleCatalogue\SDK\BodyType\BodyTypeRepository"
-                 public="false">
-            <argument type="service" id="carvago_vehicle_catalogue_client"/>
-        </service>
     </services>
 </container>

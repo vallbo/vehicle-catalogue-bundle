@@ -11,7 +11,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/JanKralCZ/vehicle-catalogue-sdk"
+            "url": "https://oauth2:T8mbcfp6Z-eMsjkC_zWn@gitlab.carvago.com/teas/vehicle-catalogue-sdk.git"
         }
     ],
     "require": {
